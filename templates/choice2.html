@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Choice 2: The Lake{% endblock %}
+
+{% block content %}
+  <h2>You&#39;ve come to a large lake 🏞️</h2>
+  <p>There is an island in the middle. Do you want to <strong>Swim</strong> or <strong>Wait</strong> for a boat?</p>
+
+  <a href="{{ url_for('game_over', reason='trout') }}" class="choice-btn">Swim</a>
+  <a href="{{ url_for('choice3') }}" class="choice-btn">Wait</a>
+{% endblock %}
