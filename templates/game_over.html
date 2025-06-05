@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Game Over{% endblock %}
+
+{% block content %}
+  <div class="alert alert-danger">
+    {% if reason == 'hole' %}
+      You fell into a hidden hole and never resurfaced. 🕳️
+    {% elif reason == 'trout' %}
+      You tried to swim… but an angry trout took offense. 🐟
+    {% elif reason == 'fire' %}
+      Flames consumed the room the moment you opened the door. 🔥
+    {% elif reason == 'beasts' %}
+      Vicious beasts lurked behind the blue door, and now you’re just a cautionary tale. 🐾
+    {% else %}
+      Oops. Something went terribly wrong. ⚓️
+    {% endif %}
+    <br /><strong>Game Over.</strong>
+  </div>
+
+  <a href="{{ url_for('choice1') }}" class="choice-btn">Restart Adventure</a>
+{% endblock %}
