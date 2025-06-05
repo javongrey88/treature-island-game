@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Choice 3: Three Doors{% endblock %}
+
+{% block content %}
+  <h2>You arrive safely on the island 🏝️</h2>
+  <p>You see a house with three doors: 
+    <span style="color: var(--color-coral)"><strong>Red</strong></span>, 
+    <span style="color: var(--color-gold)"><strong>Yellow</strong></span>, or 
+    <span style="color: var(--color-ocean)"><strong>Blue</strong></span>.
+  </p>
+
+  <a href="{{ url_for('game_over', reason='fire') }}"
+     class="choice-btn"
+     style="background-color: var(--color-coral)">Red Door</a>
+
+  <a href="{{ url_for('you_win') }}"
+     class="choice-btn"
+     style="background-color: var(--color-gold); color: var(--text-primary)">
+    Yellow Door
+  </a>
+
+  <a href="{{ url_for('game_over', reason='beasts') }}"
+     class="choice-btn"
+     style="background-color: var(--color-ocean)">Blue Door</a>
+{% endblock %}
