@@ -1,0 +1,18 @@
+:root {
+  /* Sand/Beach Base */
+  --color-sand:       #F4E1B1;  /* light warm sand */
+  --color-driftwood:  #7B4F0A;  /* rich, beach-worn wood */
+
+  /* Foliage & Water */
+  --color-forest:     #2E7D32;  /* jungle canopy */
+  --color-seafoam:    #4DA6A9;  /* shallow waters */
+  --color-ocean:      #16697A;  /* deeper ocean */
+
+  /* Accent/Highlights */
+  --color-coral:      #F08058;  /* sunset coral */
+  --color-gold:       #D4AF37;  /* treasure gleam */
+
+  /* Text Colors */
+  --text-primary:     #4E3B31;  /* dark sand, for readability */
+  --text-secondary:   #F2F0EB;  /* off-white for headings on dark backgrounds */
+}
