@@ -1,21 +1,52 @@
 {% extends "base.html" %}
+
 {% block title %}Game Over{% endblock %}
 
 {% block content %}
-  <div class="alert alert-danger">
-    {% if reason == 'hole' %}
-      You fell into a hidden hole and never resurfaced. 🕳️
-    {% elif reason == 'trout' %}
-      You tried to swim… but an angry trout took offense. 🐟
-    {% elif reason == 'fire' %}
-      Flames consumed the room the moment you opened the door. 🔥
-    {% elif reason == 'beasts' %}
-      Vicious beasts lurked behind the blue door, and now you’re just a cautionary tale. 🐾
-    {% else %}
-      Oops. Something went terribly wrong. ⚓️
-    {% endif %}
-    <br /><strong>Game Over.</strong>
-  </div>
+<!-- LARGE "Game Over" Heading -->
+<div style="text-align: center; margin-bottom: 1.5rem;">
+  <h1 style="
+      font-size: 3rem;
+      color: var(--color-coral);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    ">
+    GAME OVER
+  </h1>
+</div>
 
-  <a href="{{ url_for('choice1') }}" class="choice-btn">Restart Adventure</a>
+<!-- Show defeat image if provided -->
+{% if defeat_image %}
+<div style="text-align: center; margin-bottom: 1.5rem;">
+  <img src="{{ url_for('static', filename='images/' ~ defeat_image) }}" alt="Defeat image for {{ reason }}" style="
+          max-width: 100%;
+          width: 400px;
+          height: auto;
+          border: 4px solid var(--color-driftwood);
+          border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        " />
+</div>
+{% endif %}
+
+<!-- Original reason text (optional) -->
+<div class="alert alert-danger" style="font-size: 1.25rem; max-width: 550px; margin: 0 auto 2rem auto;">
+  {% if reason == 'hole' %}
+  You fell into a hidden hole and never resurfaced. 🕳️
+  {% elif reason == 'trout' %}
+  You tried to swim… but an angry trout took offense. 🐟
+  {% elif reason == 'fire' %}
+  Flames consumed the room the moment you opened the door. 🔥
+  {% elif reason == 'beasts' %}
+  Vicious beasts lurked behind the blue door, and now you’re just a cautionary tale. 🐾
+  {% else %}
+  Oops. Something went terribly wrong. ⚓️
+  {% endif %}
+</div>
+
+<!-- Restart button -->
+<div style="text-align: center; margin-top: 1rem;">
+  <a href="{{ url_for('choice1') }}" class="choice-btn" style="font-size: 1rem; padding: 0.75rem 1.5rem;">
+    Restart Adventure
+  </a>
+</div>
 {% endblock %}
