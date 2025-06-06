@@ -2,10 +2,16 @@
 {% block title %}Choice 1: Crossroad{% endblock %}
 
 {% block content %}
-  <h2>You're at a crossroad 🌴</h2>
-  <p>Which way do you want to go? <strong>Left</strong> or <strong>Right</strong>?</p>
+<!-- Display the choice1.jpg image -->
+{% if choice_image %}
+<div style="text-align: center; margin-bottom: 1rem;">
+  <img src="{{ url_for('static', filename='images/' ~ choice_image) }}" alt="Choice 1 Scene"
+    style="max-width: 100%; width: 450px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
+</div>
+{% endif %}
 
-  <!-- Two big “buttons” -->
-  <a href="{{ url_for('choice2') }}" class="choice-btn">Left</a>
-  <a href="{{ url_for('game_over', reason='hole') }}" class="choice-btn">Right</a>
+<h2>You're at a crossroad 🌴</h2>
+<p>Which way do you want to go? <strong>Left</strong> or <strong>Right</strong>?</p>
+<a href="{{ url_for('choice2') }}" class="choice-btn">Left</a>
+<a href="{{ url_for('game_over', reason='hole') }}" class="choice-btn">Right</a>
 {% endblock %}

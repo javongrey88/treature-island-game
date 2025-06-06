@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Treasure Island{% endblock %}</title>
+
+  <!-- Color variables -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}" />
+  <!-- Main styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+  <!-- Pirate/Adventure font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🏝️ Treasure Island Adventure 🏴‍☠️</h1>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p style="font-size: 0.8rem; color: var(--text-primary)">
+      © 2025 Pirate Crew Game Studios
+    </p>
+  </footer>
+</body>
+
+</html>

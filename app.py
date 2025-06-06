@@ -2,20 +2,27 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# ---- CHOICE ROUTES (each returns its own image name) ----
+
 @app.route('/')
 @app.route('/choice1')
 def choice1():
-    return render_template('choice1.html')
+    # Pass 'choice1.jpg' to the template as choice_image
+    return render_template('choice1.html', choice_image='choice1.jpg')
 
 @app.route('/choice2')
 def choice2():
-    return render_template('choice2.html')
+    # Pass 'choice2.jpg' to the template as choice_image
+    return render_template('choice2.html', choice_image='choice2.jpg')
 
 @app.route('/choice3')
 def choice3():
-    return render_template('choice3.html')
+    # Pass 'choice3.jpg' to the template as choice_image
+    return render_template('choice3.html', choice_image='choice3.jpg')
 
-# ---- Modified game_over route ----
+
+# ---- GAME OVER ROUTE (maps each failure reason to its image) ----
+
 @app.route('/game_over')
 def game_over():
     """
@@ -27,14 +34,14 @@ def game_over():
 
     # Map each failure reason to its corresponding image filename
     image_map = {
-        'hole':   'hole_defeat.png',
-        'trout':  'trout_defeat.png',
-        'fire':   'fire_defeat.png',
-        'beasts': 'beasts_defeat.png'
+        'hole':   'hole_defeat.jpg',
+        'trout':  'trout_defeat.jpg',
+        'fire':   'fire_defeat.jpg',
+        'beasts': 'beasts_defeat.jpg'
     }
 
-    # Look up the correct image, or None if the reason is unexpected
-    defeat_image = image_map.get(reason)  # e.g. 'hole_defeat.png'
+    # Lookup defeat_image from the map (or None if not found)
+    defeat_image = image_map.get(reason)
 
     return render_template(
         'game_over.html',
@@ -42,11 +49,14 @@ def game_over():
         defeat_image=defeat_image
     )
 
+
+# ---- YOU WIN ROUTE (always shows treasure_chest.jpg) ----
+
 @app.route('/you_win')
 def you_win():
-    # Example: Always show treasure_chest.png when you win
-    treasure_image = 'treasure_chest.png'
+    treasure_image = 'treasure_chest.jpg'
     return render_template('you_win.html', treasure_image=treasure_image)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
